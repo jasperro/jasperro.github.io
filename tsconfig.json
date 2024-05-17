@@ -14,7 +14,7 @@
         "sourceMap": true,
         "strict": true,
         "target": "esnext",
-        "types": ["vite/client", "astro/env", "@astrojs/image/client"],
+        "types": ["vite/client", "astro/env"],
         "baseUrl": "./",
         "paths": {
             "@src/*": ["./src/*"],

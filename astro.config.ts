@@ -1,6 +1,6 @@
 import { defineConfig } from "astro/config";
+import icon from "astro-icon";
 import sitemap from "@astrojs/sitemap";
-import image from "@astrojs/image";
 import mdx from "@astrojs/mdx";
 import { fileURLToPath } from "url";
 import path from "path";
@@ -24,15 +24,25 @@ const bufferLoader: Plugin = {
 // https://astro.build/config
 export default defineConfig({
     integrations: [
-        image({ serviceEntryPoint: "@astrojs/image/sharp" }),
+        icon({
+            svgoOptions: {
+                plugins: [
+                    {
+                        name: "preset-default",
+                        params: {
+                            overrides: {
+                                inlineStyles: false,
+                            },
+                        },
+                    },
+                ],
+            },
+        }),
         mdx(),
         sitemap(),
     ],
     vite: {
         plugins: [bufferLoader],
-        ssr: {
-            external: ["svgo"],
-        },
         resolve: {
             alias: {
                 node_modules: path.resolve(

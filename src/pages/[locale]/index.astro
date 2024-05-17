@@ -1,6 +1,6 @@
 ---
 import BaseLayout from "@src/layouts/BaseLayout.astro";
-import { Sprite, Icon } from "@src/components/Icons";
+import { Icon } from "@src/components/Icons";
 import MailForm from "@src/components/MailForm.astro";
 import {
     AlternativeLanguageMap,
@@ -54,8 +54,7 @@ delete alternativeLanguageMap[locale];
 
                 <Icon
                     name="logo"
-                    class="flex w-[clamp(6rem,25vw,10rem)] h-[clamp(6rem,25vw,10rem)] 2xl:ml-8"
-                    optimize={false}
+                    class="flex h-[clamp(6rem,25vw,10rem)] w-[clamp(6rem,25vw,10rem)] 2xl:ml-8"
                 />
             </span>
             <span
@@ -68,20 +67,20 @@ delete alternativeLanguageMap[locale];
             >
                 <a
                     href="#projects"
-                    class="flex w-full items-center rounded-sm bg-yellow-300 py-3 px-5 text-sm font-medium text-black shadow-sm sm:w-max"
+                    class="flex w-full items-center rounded-sm bg-yellow-300 px-5 py-3 text-sm font-medium text-black shadow-sm sm:w-max"
                     >Portfolio
                 </a>
                 <a
                     href="#contact"
-                    class="flex w-full items-center justify-between rounded-sm bg-green-300 py-3 px-5 text-sm font-medium text-black shadow-sm sm:w-max"
+                    class="flex w-full items-center justify-between rounded-sm bg-green-300 px-5 py-3 text-sm font-medium text-black shadow-sm sm:w-max"
                     >Contact&nbsp;
-                    <Sprite name="email" />
+                    <Icon name="email" />
                 </a>
                 <a
                     href="https://github.com/jasperro"
-                    class="flex w-max items-center rounded-sm bg-gray-800 py-3 px-3 font-medium text-white shadow-sm"
+                    class="flex w-max items-center rounded-sm bg-gray-800 px-3 py-3 font-medium text-white shadow-sm"
                 >
-                    <Sprite name="github" />
+                    <Icon name="github" />
                 </a>
             </div>
         </div>
@@ -91,19 +90,19 @@ delete alternativeLanguageMap[locale];
                 <p
                     class="mt-2 select-none tracking-[.25em] md:tracking-[.75em]"
                 >
-                    <Sprite name="github" />
-                    <Sprite name="open-source-initiative" />
-                    <Sprite name="linux" />
-                    <Sprite name="react" />
-                    <Sprite name="language-html5" />
-                    <Sprite name="language-css3" />
-                    <Sprite name="language-javascript" />
-                    <Sprite name="language-typescript" />
-                    <Sprite name="raspberry-pi" />
-                    <Sprite name="home-assistant" />
-                    <Sprite name="godot" />
-                    <Sprite name="eleventy" />
-                    <Sprite name="hugo" />
+                    <Icon name="github" />
+                    <Icon name="open-source-initiative" />
+                    <Icon name="linux" />
+                    <Icon name="react" />
+                    <Icon name="language-html5" />
+                    <Icon name="language-css3" />
+                    <Icon name="language-javascript" />
+                    <Icon name="language-typescript" />
+                    <Icon name="raspberry-pi" />
+                    <Icon name="home-assistant" />
+                    <Icon name="godot" />
+                    <Icon name="eleventy" />
+                    <Icon name="hugo" />
                 </p>
             </span>
         </div> -->

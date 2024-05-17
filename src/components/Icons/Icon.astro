@@ -1,7 +1,11 @@
 ---
-import { Icon } from "astro-icon";
+import { Icon as IconOriginal } from "astro-icon/components";
 import { defaults, globals } from "./";
-let props = Astro.props;
+
+// Typescript being typescript
+type Props = Omit<Parameters<typeof IconOriginal>[0], "slot">;
+
+let { ...props } = Astro.props;
 // Defaults for icon size
 props.class = props.class ? props.class : defaults.class;
 props.class += " " + globals.class;
@@ -9,4 +13,4 @@ props.class += " " + globals.class;
 props.title = props.title ? props.title : props.name;
 ---
 
-<Icon {...props} />
+<IconOriginal {...props} />

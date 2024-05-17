@@ -1,10 +1,10 @@
 ---
 // Based on https://github.com/Princesseuh/astro-eleventy-img/
-import { getPicture } from "@astrojs/image";
 import { generatePlaceholder, PlaceholderOptions } from "@src/lib/placeholders";
+import { Picture } from "astro:assets";
 
 interface Props {
-    src: Promise<any>;
+    src: any;
     imgRaw?: Promise<any>;
     alt: string;
     caption?: string;
@@ -20,17 +20,9 @@ const {
     alt,
     caption,
     widths = [300, 600],
-    sizes = [300, 600],
-    classes = "",
+    // sizes = [300, 600],
     placeholderOptions = {},
 } = Astro.props as Props;
-
-const { image, sources } = await getPicture({
-    aspectRatio: 0,
-    src,
-    widths,
-    formats: ["avif", "webp", "png"],
-});
 
 const placeHolder =
     imgRaw == undefined
@@ -47,16 +39,13 @@ const placeHolderProps =
 ---
 
 <figure>
-    <picture>
-        {sources.map((attrs) => <source {...attrs} {sizes} />)}
-        <img
-            {...image}
-            class={classes}
-            loading="lazy"
-            decoding="async"
-            alt={alt}
-            {...placeHolderProps}
-        />
-    </picture>
+    <Picture
+        inferSize
+        formats={["avif", "webp", "png"]}
+        src={src}
+        widths={widths}
+        alt={alt}
+        {...placeHolderProps}
+    />
     {caption && <figcaption>{caption}</figcaption>}
 </figure>
